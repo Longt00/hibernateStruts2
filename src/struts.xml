@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+
+        <action name="lookTeacherAction" class="teacherAction.LookTeacherAction">
+            <result name="success">/teacher/lookTeacher.jsp</result>
+            <result name="input">/teacher/index.jsp</result>
+        </action>
+        <action name="addTeacherAction" class="teacherAction.AddTeacherAction">
+            <result name="success" type="chain">lookTeacherAction</result>
+            <result name="input">/teacher/addTeacher.jsp</result>
+        </action>
+        <action name="findTeacherAction" class="teacherAction.FindTeacherAction">
+            <result name="success">/teacher/updateTeacher.jsp</result>
+            <result name="input">/teacher/findTeacher.jsp</result>
+        </action>
+        <action name="updateTeacherAction" class="teacherAction.UpdateTeacherAction">
+            <result name="success" type="chain">lookTeacherAction</result>
+            <result name="input">/teacher/updateTeacher.jsp</result>
+        </action>
+        <action name="deleteTeacherAction" class="teacherAction.DeleteTeacherAction">
+            <result name="success" type="chain">lookTeacherAction</result>
+            <result name="input">/teacher/deleteTeacher.jsp</result>
+        </action>
+
+
+    </package>
+</struts>
